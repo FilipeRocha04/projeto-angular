@@ -1,0 +1,42 @@
+.cabecalho{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #0d6efd;
+    padding-bottom: 4px;
+
+}
+
+.icone{
+    width: 150px;
+    height: auto;
+    padding: 50px;
+    gap:10px;
+
+}
+
+.texto{
+    margin-top:0;
+    color: #0d6efd;
+    text-align: center;
+    font-family: 'Zen Dots';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+}
+
+.destaque{
+    color:#0d6efd;
+
+
+}
+
+.lugar {
+    background: linear-gradient(500deg, #5f5555, #0d6efd); 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+  }

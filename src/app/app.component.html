@@ -1,0 +1,68 @@
+
+
+<app-cabecalho></app-cabecalho>
+
+<div class="criar-container">
+  <h2 class="novocontato">Adicionar Novo Contato</h2>
+
+  <label for="novoNome"></label>
+  <input type="text" id="novoNome" class="texto-input" [(ngModel)]="novoContato.nome" name="novoNome" placeholder="Digite o nome">
+
+  <label for="novoTelefone"></label>
+  <input type="text" id="novoTelefone" class="telefone-input" [(ngModel)]="novoContato.telefone" name="novoTelefone" placeholder="Digite o número do telefone">
+
+  <button type="button" class="botao-salvar" (click)="criar()">Salvar</button>
+</div>
+
+
+
+<app-container>
+<app-contato></app-contato>
+  <div *ngFor="let letra of alfabeto">
+    <app-separador>
+      {{ letra }}
+    </app-separador>
+    <div *ngIf="filtrarContatosPorLetra(letra).length > 0">
+      <div *ngFor="let contato of filtrarContatosPorLetra(letra)">
+        <div class="contato-item">
+
+
+        
+          <div class="posicao-contatos">
+          <p class="nome-baserow"><strong>Nome:</strong> {{ contato.nome }}</p>
+          <p class="telefone-baserow"><strong>Telefone:</strong> {{ contato.telefone }}</p>
+          <div class="botoes-edicao">
+          <button (click)="editar(contato)">
+            <img src="editar.png" alt="Editar" class="editar">
+          </button>
+          <button (click)="deletar(contato.id)">
+            <img src="lixo.png" alt="Apagar" class ="Apagar">
+          </button>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div *ngIf="contatoSelecionado" class="caixa-dialogo">
+    <div class="caixa-conteudo">
+      <h2>Editar Contato</h2>
+      <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" [(ngModel)]="contatoSelecionado.nome" name="nome">
+  
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" [(ngModel)]="contatoSelecionado.telefone" name="telefone">
+  
+        <button type="button" class="botao-salvar" (click)="salvarEdicao()">Salvar</button>
+        <button type="button" class="botao-cancelar" (click)="cancelarEdicao()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <router-outlet></router-outlet>
+</app-container> 
+
